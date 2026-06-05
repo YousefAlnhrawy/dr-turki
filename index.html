@@ -18,32 +18,38 @@
 <body>
 
 <!-- Navbar -->
- <header id="header">
-    <nav class="navbar">
-    <!-- <h2 id="logo">مكتب محاماة</h2> -->
-    <a href="#" class="logo"><img src="logo2.png" alt=""></a>
+ <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="#" ><img src="logo2.png" alt=""></a>
+      </div>
+     <nav class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#weare">About Us</a></li>
+                <li><a href="#ceo">ceo</a></li>
+                <li><a href="#ser" >Our services</a></li>
+                <li><a href="#con">contact</a></li>
+            </ul> 
+     </nav>
+     <div class="header-actions">
+                
+                <a  target="_blank" class="whatsapp-icon" onclick="document.location= 'https://api.whatsapp.com/send?phone=+966543639066&text=.'" ><i class="fa-brands fa-whatsapp"></i></a>
 
-     <div class="links" id="links">
-                <span class="close_menu"  onclick="Open_colose_Menu()"><i class="fa-solid fa-xmark"></i></span>
- 
-                <!-- <a href="#" class="logo"><img src="logo2.png" alt=""></a> -->
-                <a class="active" href="#" id="home"></a>
-                <a href="#weare" id="weARE"></a>
-                <a href="#ser" id="service"></a>
-           
-                <a href="#con" id="contact"></a>
-            </div>
-
-            <div class="icons">
-                <select id="lang">
+                <select class="lang-select" id="lang">
                     <option value="ar">العربية</option>
                     <option value="en">English</option>
                     <option value="fr">Français</option>
                 </select>
-                <a  target="_blank" onclick="document.location= 'https://api.whatsapp.com/send?phone=+966543639066&text=.'" ><i class="fa-brands fa-whatsapp"></i></a>
-                <span class="icon_menu" onclick="Open_colose_Menu()"><i class="fa-solid fa-bars"></i></span>
-            </div>
-   </nav>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+      </div>
+
+    </div>
 </header>
 <!-- Hero -->
 <section class="hero">
@@ -138,6 +144,43 @@
     </section>
 
  <!-- ------------------------------------------------------ -->
+ <!-- manger ------------------------------------------------- -->
+ <!-- ------------------------------------------------------ -->
+<div class="container" id="ceo">
+        <div class="header">
+            <div class="header-icon">
+                <img src="logo2.png" alt="">
+            </div>
+            <div class="header-titles">
+                <h2 id="mangert"> </h2>
+                <span id="manager"></span>
+            </div>
+        </div>
+
+        <div class="manager-card" id="managerCard">
+            
+            <div class="card-text">
+                <p id="managerTitle1"></p>
+                <p id="managerTitle2"></p>
+                <p id="managerTitle3"></p>
+            </div>
+
+            <div class="card-profile">
+                <div class="profile-image-wrapper">
+                    <img src="images/manger.png" alt="D.turki">
+                </div>
+                <div class="profile-info">
+                    <div class="profile-details">
+                        <h3 id="nameManager">عمر العسبلي</h3>
+                        <p id="managerCeo"></p>
+                    </div>
+                    <div class="vertical-line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ <!--end manger ------------------------------------------------------ -->
 <!-- Services -->
 <section class="section" id="ser">
     <h2 id="servicesTitle"></h2>
@@ -207,6 +250,119 @@
     <h2 id="contactTitle"></h2>
     <p id="contactText"></p>
 </section> -->
+<!--  cliient journey ---------------------------------------------- -->
+
+<section class="client-journey-section">
+        
+        <div class="section-header animate-item">
+            <h2 id="clientTitle"></h2>
+            <p id="clientp"></p>
+        </div>
+
+        <div class="journey-grid">
+            
+            <div class="side-column">
+                <div class="journey-card card-gold animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientOne">  </h3>
+                        <p id="clientOnep"></p>
+                    </div>
+                </div>
+
+                <div class="journey-card card-dark animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientTwo"></h3>
+                        <p id="clientTwop"></p>
+                    </div>
+                </div>
+
+                <div class="journey-card card-gold animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientThere"></h3>
+                        <p id="clientTherep"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-circle-wrapper animate-item">
+                <div class="center-circle" id="clientJourney"></div>
+            </div>
+
+            <div class="side-column">
+                <div class="journey-card card-gold animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientFour"></h3>
+                        <p id="clientFourp"></p>
+                    </div>
+                </div>
+
+                <div class="journey-card card-dark animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientFive"></h3>
+                        <p id="clientFivep"></p>
+                    </div>
+                </div>
+
+                <div class="journey-card card-gold animate-item">
+                    <div class="icon-box">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 id="clientSix"></h3>
+                        <p id="clientSixp"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<!-- end client journey --------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- client ------------------------------------------------------------------------------- -->
+ <!-- ------------------------------------------------------------------------------------- -->
+<section class="clients-section">
+        
+        <div class="section-title fade-up">
+            <h2 id="ourClient"></h2>
+        </div>
+
+        <div class="clients-list">
+            
+            <div class="client-box fade-up">
+                <p id="ourClientp1"></p>
+            </div>
+
+            <div class="client-box fade-up">
+                <p id="ourClientp2"></p>
+            </div>
+
+            <div class="client-box fade-up">
+                <p id="ourClientp3"></p>
+            </div>
+
+            <div class="client-box fade-up">
+                <p id="ourClientp4"></p>
+            </div>
+
+        </div>
+    </section>
+ <!--end client  ------------------------------------------------------------------------------------- -->
 <!-- contact--------------------------------------- -->
 <section class="contact-section " id="con">
 

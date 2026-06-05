@@ -1,28 +1,47 @@
 
 // add class active to header on scroll
 
-let header = document.querySelector("header")
+// let header = document.querySelector("header")
 
-window.onscroll = function(){
-    if (this.scrollY >= 50) {
-        header.classList.add("active")
-    }else{
-        header.classList.remove("active")
-    }
-}
+// window.onscroll = function(){
+//     if (this.scrollY >= 50) {
+//         header.classList.add("active")
+//     }else{
+//         header.classList.remove("active")
+//     }
+// }
 
-let nav_links = document.getElementById("links");
+// let nav_links = document.getElementById("links");
 
-function Open_colose_Menu() {
-    nav_links.classList.toggle("active")
-}
+// function Open_colose_Menu() {
+//     nav_links.classList.toggle("active")
+// }
+
+// header---------------------------------------------------------
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    // إضافة وإزالة كلاس التفعيل للزر والقائمة معاً لحركة متزامنة ناعمة
+    menuToggle.classList.toggle('open');
+    navMenu.classList.toggle('open');
+});
+
+        // إغلاق القائمة تلقائياً عند الضغط على أي رابط في الموبايل
+const navLinks = document.querySelectorAll('.nav-menu a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+    });
+});
 // -----------------------------------------------
 const data = {
     ar: {
         dir: "rtl",
         logo: "مكتب محاماة",
         home: "الرئيسية",
-        weARE: "عنا",
+        weARE: "من نحن",
         service : "خدماتانا",
         contact : "التواصل",
         title: "خبرة قانونية تثق بها",
@@ -53,6 +72,14 @@ const data = {
         Team_p2 : "ونولي أهمية خاصة لتكامل الخبرات وتنوع التخصصات داخل فريق العمل، بما يتيح معالجة الملفات بمنهجية شاملة ورؤية قانونية معمقة، ويسهم في تقديم حلول قانونية فعالة ومتكاملة تلبي احتياجات عملائنا.",
         Team_p3 : "ويتمتع فريقنا بإلمام واسع بالأنظمة والتشريعات والممارسات المهنية، مع القدرة على التعامل بكفاءة مع القضايا المحلية والملفات ذات الطابع الدولي، مدعومين بإجادة اللغات العربية والفرنسية والإنجليزية بما يعزز جودة التواصل مع قاعدة عملاء متنوعة.",
         Team_p4 : "كما نحرص على استقطاب الكفاءات القانونية المتميزة، والاستثمار المستمر في تطوير قدرات فريقنا وتعزيز مهاراتهم، بما يضمن الحفاظ على أعلى مستويات الأداء المهني، والاستجابة بمرونة وكفاءة لمتطلبات السوق القانوني المتنامية",
+        mangert: "مدير الشركة",
+        manger: "Manager",
+        nameManager : "دكتور تركى الجدعانى",
+        managerCeo : "المدير العام",
+        managerTitle1 : "شريككم القانوني الموثوق في الاستشارات، التقاضي، وصياغة العقود وحماية الملكية الفكرية",
+        managerTitle2 :"لدينا فريق متخصص يعمل على تقديم خدمات قانونية متخصصة وحلول عملية تدعم الأفراد والشركات وتحافظ على حقوقهم ومصالحهم",
+        managerTitle3 :"نؤمن بأن العدالة تبدأ بفهم عميق للأنظمة والقوانين، لذلك نكرّس خبراتنا لتقديم خدمات قانونية احترافية تضمن حماية الحقوق وتحقيق أفضل النتائج لعملائنا.",
+
         servicesTitle: "خدماتنا",
         s11: "التقـــاضــــــي",
         s22: "حمــايــة حقــــوق الملكية الفكرية",
@@ -67,6 +94,26 @@ const data = {
         s7: "إعادة الهيكلة والاندماج والاستحواذ",
         s8: "خدمات الزكاة والضريبة والجمارك",
         s9: "التركات",
+        clientTitle:"شراكة قانونية تبدأ بالفهم.... وتستمر حتى تحقيق النتائج.",
+        clientp : "نؤمن بأن كل ملف قانوني هو رحلة تبدأ بفهم دقيق، وتدار بمنهجية واضحة، وتنتهي بتحقيق نتائج ملموسة. ومن هذا المنطلق، نصطحب عملاءنا عبر تجربة قانونية متكاملة، تقوم على الاحترافية والشفافية، والتخطيط الاستراتيجي.",
+        clientJourney :"رحلة العميل",
+        clientOne : "الاجتماع وفهم الاحتياج",
+        clientOnep : "تبدأ رحلتنا مع العميل بعقد اجتماع يهدف إلى الاستماع بعناية وفهم كافة تفاصيل الموضوع وتحليل احتياجاته وأهدافه، بما يمكن من بناء تصور قانوني واضح منذ البداية.",
+        clientTwo : "الدراسة والتحليل القانوني",
+        clientTwop : "نقوم بدراسة الملف بشكل معمق من خلال تحليل الوقائع والمستندات، والاطلاع على الأنظمة ذات العلاقة بهدف الوصول إلى تقييم قانوني دقيق ورؤية متكاملة للخيارات المتاحة.",
+        clientThere : "العرض وخطة العمل",
+        clientTherep : "نقدم للعميل تصورا واضحا يتضمن الاستراتيجية القانونية المقترحة، وخطة العمل، والإجراءات المتوقعة. بما يضمن وضوح المسار وتمكينه من اتخاذ القرار بثقة",
+        clientFour : "التعاقد وتنظيم العلاقة",
+        clientFourp : "نحرص على تنظيم العلاقة التعاقدية بشكل احترافي من خلال اتفاقية واضحة تحدد نطاق العمل والالتزامات، وآلية التنفيذ، بما يضمن الشفافية وحفظ الحقوق..",
+        clientFive : "التنفيذ بكفاءة واحترافية",
+        clientFivep : "نباشر تنفيذ الاستراتيجية المعتمدة وفق منهجية دقيقة، مع إدارة فعّالة لكافة الإجراءات، والعمل باحترافية لتحقيق أفضل النتائج الممكنة.",
+        clientSix : "التواصل والتحديث المستمر",
+        clientSixp : "نؤمن بأن التواصل هو أساس الثقة، لذلك نحرص على إبقاء عملائنا على اطلاع دائم بمستجدات ملفاتهم، من خلال تحديثات دورية وتقارير واضحة تعكس سير العمل بكل شفافية.",
+        ourClient : "عمـلائنــا",
+        ourClientp1: "نقدم خدماتنا لشريحة متنوعة من العملاء، تشمل الشركات والمؤسسات والمستثمرين ورواد الأعمال، إضافة إلى الأفراد، بما يعكس قدرتنا على التعامل مع ملفات قانونية ذات طابع محلي ودولي.",
+        ourClientp2: "نواكب احتياجات عملائنا من الشركات في مختلف مراحل أعمالهم، من التأسيس والتوسع إلى إدارة المخاطر والنزاعات، كما نوفر للأفراد الدعم القانوني اللازم لحماية حقوقهم وإدارة شؤونهم القانونية بكفاءة.",
+        ourClientp3: "نؤمن بأن عملاءنا شركاء في النجاح، ونسعى إلى بناء علاقات مهنية طويلة الأمد تقوم على الثقة والشفافية والالتزام، من خلال التواصل المستمر، والاستجابة الفعّالة، وتقديم حلول قانونية تلبي تطلعاتهم.",
+        ourClientp4: "كما تمكننا خبرتنا في التعامل مع عملاء من خلفيات متعددة، وإجادتنا للغات العربية والفرنسية والإنجليزية من تقديم خدمات قانونية احترافية تتوافق مع متطلبات البيئة القانونية والاقتصادية وتعزز قدرتنا على إدارة الملفات العابرة للحدود بكفاءة واقتدار",
         contactTitle: "تواصل معنا",
         contactText: "نحن هنا لخدمتك",
         contactUs : " تواصل معنا",
@@ -108,6 +155,14 @@ const data = {
         Team_p2 : "We place particular importance on the integration of expertise and diversity of specializations within the team, enabling the handling of matters through a comprehensive methodology and an in-depth legal perspective, and contributing to the provision of effective and integrated legal solutions that meet client needs",
         Team_p3 : "Our team possesses extensive knowledge of laws, regulations, and professional practices, with the ability to handle local cases and matters of an international nature efficiently, supported by proficiency in Arabic, French, and English, thereby enhancing communication with a diverse client base",
         Team_p4 : "We are also committed to attracting distinguished legal talents and continuously investing in the development of our team's capabilities and enhancing their skills, ensuring the maintenance of the highest levels of professional performance and responsiveness to evolving legal matters",
+        mangert: "Company manager",
+        manager: "Manager",
+        nameManager : "Dr. Turki Al-Jadaani",
+        managerCeo : "General Manager",
+        managerTitle1 : "Your trusted legal partner for consultations, litigation, contract drafting, and intellectual property protection.",
+        managerTitle2 : "We have a specialized team working to provide expert legal services and practical solutions that support individuals and companies and protect their rights and interests.",
+        managerTitle3 :"We believe that justice begins with a deep understanding of systems and laws, so we dedicate our expertise to providing professional legal services that ensure the protection of rights and the best results for our clients.",
+
         servicesTitle: "Our Services",
         s11: "Commercial Cases",
         s22: "Criminal Cases",
@@ -122,6 +177,26 @@ const data = {
         s7: "Restructuring, Mergers and Acquisitions",
         s8: "Zakat, Tax and Customs Services",
         s9: "Inheritance",
+        clientTitle:"A legal partnership that begins with understanding .and continues through achieving results",
+        clientp : "We believe that every legal matter is a journey that begins with a precise understanding, is managed through a clear methodology, and ends with the achievement of tangible results. Based on this, we guide our clients through an integrated legal experience built on professionalism, transparency, and strategic planning",
+        clientJourney :"Client Journey",
+        clientOne : "Meeting and Understanding Needs",
+        clientOnep : "We begin our journey with the client by holding a meeting aimed at carefully listening to and understanding all details of the matter, analyzing their needs and objectives, thereby enabling the establishment of a clear legal perspective from the outset",
+        clientTwo : "Proposal and Work Plan",
+        clientTwop : "We present to the client a clear proposal including the proposed legal strategy, the work plan, and the expected procedures, ensuring clarity of direction and enabling the client to make decisions with confidence",
+        clientThere : "Execution with Efficiency and Professionalism",
+        clientTherep : "We proceed with the implementation of the approved strategy according to a precise methodology, with effective management of all procedures and professional execution aimed at achieving the best possible outcomes",
+        clientFour : "Study and Legal Analysis",
+        clientFourp : "We undertake an in-depth study of the matter by analyzing the facts and documents and reviewing the relevant regulations, with the aim of reaching an accurate legal assessment and a comprehensive view of the available options",
+        clientFive : "Contracting and Structuring the Relationship",
+        clientFivep : "We ensure the professional structuring of the contractual relationship through a clear agreement that defines the scope of work, obligations, and mechanisms of execution, ensuring transparency and the preservation of rights.",
+        clientSix : "Communication and Continuous Updates",
+        clientSixp : "We believe that communication is the foundation of trust; therefore, we ensure that our clients are continuously informed of developments in their matters through periodic updates and clear reports reflecting the progress of work with full transparency",
+        ourClient : "Our Clients",
+        ourClientp1: "We provide our services to a diverse range of clients, including companies, institutions, investors, entrepreneurs, and individuals, reflecting our ability to handle legal matters of both a local and international nature",
+        ourClientp2: "We support our corporate clients throughout all stages of their business, from establishment and expansion to risk management and dispute resolution, and we also provide individuals with the necessary legal support to protect their rights and manage their legal affairs efficiently",
+        ourClientp3: "We believe that our clients are partners in success, and we strive to build long-term professional relationships based on trust, transparency, and commitment, through continuous communication, effective responsiveness, and the provision of legal solutions that meet their expectations",
+        ourClientp4: "Our experience in dealing with clients from diverse backgrounds, together with our proficiency in Arabic, French, and English, enables us to provide professional legal services that align with legal and economic requirements and enhances our ability to manage cross-border matters with efficiency and competence",
         contactTitle: "Contact Us",
         contactText: "We are here to help",
         contactUs : "Contact us",
@@ -163,6 +238,14 @@ const data = {
         Team_p2 : "Nous accordons une importance particulière à la complémentarité des expertises et à la diversité des spécialisations au sein de l'équipe, permettant le traitement des dossiers selon une approche globale et une vision juridique approfondie, et contribuant à la fourniture de solutions juridiques efficaces et intégrées répondant aux besoins des clients",
         Team_p3 : "Notre équipe dispose d'une connaissance approfondie des lois, des réglementations et des pratiques professionnelles, avec la capacité de traiter efficacement des affaires locales et des dossiers à dimension internationale, soutenue par une maîtrise de l'arabe, du français et de l'anglais, renforçant ainsi la communication avec une clientèle diversifiée",
         Team_p4 : "Nous nous engageons également à attirer des talents juridiques distingués et à investir en continu dans le développement des compétences de notre équipe ainsi que dans le renforcement de leurs aptitudes, garantissant le maintien des plus hauts niveaux de performance professionnelle et une adaptation constante à l'évolution des dossiers juridiques",
+        mangert: "Directeur d'entreprise",
+        manger: "Manager",
+        nameManager : "Dr. Turki Al-Jadaani",
+        managerCeo : "Directeur général",
+        managerTitle1 : "Votre partenaire juridique de confiance pour les consultations, les litiges, la rédaction de contrats et la protection de la propriété intellectuelle.",
+        managerTitle2 :"Nous disposons d'une équipe spécialisée qui travaille à fournir des services juridiques experts et des solutions pratiques pour soutenir les particuliers et les entreprises et protéger leurs droits et leurs intérêts.",
+        managerTitle3 :"Nous croyons que la justice commence par une compréhension approfondie des systèmes et des lois, c'est pourquoi nous mettons notre expertise au service de la fourniture de services juridiques professionnels qui garantissent la protection des droits et les meilleurs résultats pour nos clients.",
+
         servicesTitle: "Nos Services",
         s11: "Affaires commerciales",
         s22: "Affaires pénales",
@@ -177,6 +260,26 @@ const data = {
         s7: "Restructuring, Mergers and Acquisitions",
         s8: "Services de Zakat, fiscalité et douanes",
         s9: "Partage d'héritage",
+        clientTitle:"Un partenariat juridique qui commence par la compréhension et se poursuit jusqu'à l'obtention de résultats",
+        clientp : "Nous considérons que chaque affaire juridique est un parcours qui commence par une compréhension précise, se poursuit par une gestion structurée selon une méthodologie claire, et se termine par l'obtention de résultats concrets. Dans cette optique, nous accompagnons nos clients à travers une expérience juridique intégrée fondée sur le professionnalisme, la transparence et la planification stratégique",
+        clientJourney :"Parcours client",
+        clientOne : "Rencontre et compréhension des besoins",
+        clientOnep : "Nous débutons notre accompagnement avec le client par une rencontre visant à écouter attentivement et à comprendre tous les détails de l'affaire, à analyser ses besoins et ses objectifs, permettant ainsi d'établir dès le départ une vision juridique claire",
+        clientTwo : "Proposition et plan de travail",
+        clientTwop : "Nous présentons au client une proposition claire incluant la stratégie juridique envisagée, le plan de travail ainsi que les procédures prévues, garantissant une clarté d'orientation et permettant une prise de décision en toute confiance",
+        clientThere : "Exécution avec efficacité et professionnalisme",
+        clientTherep : "Nous procédons à la mise en œuvre de la stratégie approuvée selon une méthodologie rigoureuse, avec une gestion efficace de l'ensemble des procédures et une exécution professionnelle visant à atteindre les meilleurs résultats possibles",
+        clientFour : "Etude et analyse juridique",
+        clientFourp : "Nous procédons à une étude approfondie du dossier en analysant les faits et les documents et en examinant les réglementations applicables, afin d'aboutir à une évaluation juridique précise et à une vision globale des options disponibles",
+        clientFive : "Contractualisation et structuration de la relation",
+        clientFivep : "Nous assurons la structuration professionnelle de la relation contractuelle à travers un accord clair définissant le périmètre de la mission, les obligations et les modalités d'exécution, garantissant la transparence et la protection des droits",
+        clientSix : "Communication et mises à jour continues",
+        clientSixp : "Nous considérons que la communication est le fondement de la confiance; c'est pourquoi nous veillons à informer continuellement nos clients de l'évolution de leurs dossiers à travers des mises à jour périodiques et des rapports clairs reflétant l'avancement des travaux en toute transparence",
+        ourClient : "Nos clients",
+        ourClientp1: "Nous fournissons nos services à une large gamme de clients, incluant des sociétés, des institutions, des investisseurs, des entrepreneurs ainsi que des particuliers, ce qui reflète notre capacité à traiter des affaires juridiques de nature tant locale qu'internationale",
+        ourClientp2: "Nous accompagnons nos clients à toutes les étapes de leur activité, de la création et l'expansion jusqu'à la gestion des risques et la résolution des litiges. Nous fournissons également aux particuliers l'accompagnement juridique nécessaire pour protéger leurs droits et gérer leurs affaires juridiques de manière efficace",
+        ourClientp3: "Nous considérons nos clients comme des partenaires de réussite, et nous nous efforçons de construire des relations professionnelles durables fondées sur la confiance, la transparence et l'engagement, à travers une communication continue, une réactivité efficace et la fourniture de solutions juridiques répondant à leurs attentes",
+        ourClientp4: "Notre expérience auprès de clients issus d'horizons divers, ainsi que notre maîtrise de l'arabe, du français et de l'anglais, nous permettent de fournir des services juridiques professionnels conformes aux exigences juridiques et économiques, et renforcent notre capacité à gérer efficacement les dossiers transfrontaliers avec compétence",
         contactTitle: "Contact",
         contactText: "Nous sommes à votre service",
         contactUs : "Contactez-nous",
@@ -479,3 +582,72 @@ card_white.forEach(element => {
     }
 });
 // end read more ------------------------------------------------------
+
+// client journey
+ document.addEventListener("DOMContentLoaded", function() {
+            // تحديد جميع العناصر التي تحتوي على كلاس animate-item
+            const animatedItems = document.querySelectorAll('.animate-item');
+
+            // إعداد الـ Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // إذا ظهر العنصر في الشاشة، أضف كلاس visible
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // إيقاف مراقبة العنصر بعد ظهوره لمنع تكرار الحركة
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1, // تفعيل الحركة عندما يظهر 10% من العنصر
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            // ربط الـ observer بالعناصر
+            animatedItems.forEach((item) => {
+                observer.observe(item);
+            });
+        });
+// ----------------------------------------------------------------
+// client ----------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function() {
+            // اختيار جميع العناصر التي ستحصل على الحركة
+            const elements = document.querySelectorAll('.fade-up');
+
+            // إعداد المراقب (Intersection Observer)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // إضافة تأخير زمني بسيط لكل عنصر ليظهروا بالتتابع
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150); // 150 ملي ثانية بين كل عنصر وآخر
+                        
+                        // إيقاف مراقبة العنصر بعد ظهوره
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // يبدأ التأثير عند ظهور 10% من العنصر
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            // تطبيق المراقب على العناصر
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+        // manger------------------------------------------------------------
+         document.addEventListener("DOMContentLoaded", function() {
+            const card = document.getElementById('managerCard');
+            
+            // تجهيز البطاقة للحركة
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+            
+            // تنفيذ الحركة بعد تحميل الصفحة بـ 100 ملي ثانية
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
